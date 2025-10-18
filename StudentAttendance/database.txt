@@ -1,0 +1,22 @@
+CREATE DATABASE attendance;
+
+-- Selecting the database
+USE attendance;
+
+-- User Table (stores all users: admin, teachers, students)
+CREATE TABLE user(id int primary key, username varchar(25), name varchar(25), password varchar(25), prio int);
+
+-- Class Table (stores different classes like "10A", "12B" etc.)
+CREATE TABLE class(id int primary key, name varchar(25));
+
+-- Student Table (stores student information)
+CREATE TABLE students(id int primary key, name varchar(25), class varchar(10));
+
+-- Teachers Table (stores teacher information)
+CREATE TABLE teachers(id int primary key, name varchar(25));
+
+-- Attendance Table (stores daily attendance records)
+CREATE TABLE attend(stid int, dt date, status varchar(15), class varchar(15));
+
+-- Creating the first admin user so we can log in
+INSERT INTO user VALUES(1, 'admin', 'Admin', 'admin', 1);
